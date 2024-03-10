@@ -1,0 +1,191 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #303030;
+    text-decoration: none;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.user-details-card {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.image-container {
+    width: 120px;
+    height: 120px;
+}
+
+.image-container img {
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+}
+
+.icon-wrap {
+    position: relative;
+}
+
+.icon-wrap .icon-edit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+}
+
+.icon-size-32 {
+    width: 32px;
+    height: 32px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.edit-modal-container {
+    border: 1px solid #303030;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+
+.edit-modal-container form {
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 20px;
+    width: 600px;
+}
+
+.edit-modal-container form label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.w-100 {
+    width: 100%;
+}
+.h-20 {
+    height: 20px;
+}
+
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-between{ 
+    justify-content: space-between;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: rgb(239, 120, 120);
+    color: #fff;
+    outline: none;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid rgb(239, 120, 120);
+}
+
+.input-wrap {
+    height: 50px;
+    border: 1px solid #303030;
+    border-radius: 8px;
+    outline: none;
+    padding:0 10px;
+    font-size: 16px;
+}
+
+input::file-selector-button {
+    background-color: rgb(239, 120, 120);
+    color: #fff;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid rgb(239, 120, 120);
+    position: absolute;
+    right: 0;
+    top: 10%;
+}
+
+.image-upload-container {
+    position: relative;
+    margin: 10px 0;
+}
+
+.modal-title {
+    font-size: 22px;
+}
+
+.close-btn {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 30px;
+}
+.justify-end {
+    justify-content: end;
+}
+.preview-image-container {
+    width: 120px;
+    height: 120px;
+}
+.preview-image-container img {
+    object-fit: contain;
+    width: 100%;
+}
+.gap-100 {
+    gap: 100px;
+}
+
+@media screen and (max-width:768px){
+    .modal-container-wrapper {
+        flex-direction: column-reverse;
+    }
+    .edit-modal-container form {
+        width: 360px;
+    }
+}
+
+@media screen and (max-width:500px){
+    .edit-modal-container form {
+        width: 300px;
+    }
+    .edit-modal-container {
+        overflow-y: auto;
+        height: 80%;
+    }
+}
