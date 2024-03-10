@@ -12,6 +12,8 @@ export function UserContextProvider({ children }) {
 
     const [allUserData, setAllUserData] = useState(null)
     const [singleUserData, setSingleUserData] = useState(null)
+    const [isModalVisible, setIsModalVisible] = useState(false)
+
 
     function updateUser({ id, avatar, first_name, email, contact }) {
         const updatedUserData = allUserData.map((user) => {
@@ -26,7 +28,7 @@ export function UserContextProvider({ children }) {
     }
 
     return (
-        <UserContext.Provider value={{ allUserData, setAllUserData, singleUserData, setSingleUserData, updateUser, getSingleUser }}>
+        <UserContext.Provider value={{ allUserData, setAllUserData, singleUserData, setSingleUserData, updateUser, getSingleUser, isModalVisible, setIsModalVisible }}>
             {children}
         </UserContext.Provider>
     )

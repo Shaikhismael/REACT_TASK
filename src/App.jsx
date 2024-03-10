@@ -7,10 +7,9 @@ import { useUserContext } from './context/UserContext'
 
 function App() {
 
-  // const [usersData, setUsersData] = useState(null)
-  const { allUserData, setAllUserData } = useUserContext()
-  const [isModalVisible, setIsModalVisible] = useState(false)
+  const { allUserData, setAllUserData, isModalVisible, setIsModalVisible } = useUserContext()
 
+  // Toggling Modal
   const handleEditModal = () => {
     setIsModalVisible(!isModalVisible)
   }
@@ -30,7 +29,9 @@ function App() {
 
   return (
     <div className='main-container'>
+
       {!allUserData && <div>Loading...</div>}
+
       {allUserData && allUserData.map((user) => (
         <CardItems
           key={user.id}
@@ -40,6 +41,7 @@ function App() {
       ))}
 
       {isModalVisible && <EditModal handleEditModal={handleEditModal} />}
+
     </div>
   )
 }
