@@ -13,6 +13,7 @@ export function UserContextProvider({ children }) {
     const [allUserData, setAllUserData] = useState(null)
     const [singleUserData, setSingleUserData] = useState(null)
     const [isModalVisible, setIsModalVisible] = useState(false)
+    const [isUploading, setIsUploading] = useState(false)
 
 
     function updateUser({ id, avatar, first_name, email, contact }) {
@@ -28,7 +29,18 @@ export function UserContextProvider({ children }) {
     }
 
     return (
-        <UserContext.Provider value={{ allUserData, setAllUserData, singleUserData, setSingleUserData, updateUser, getSingleUser, isModalVisible, setIsModalVisible }}>
+        <UserContext.Provider value={{
+            allUserData,
+            setAllUserData,
+            singleUserData,
+            setSingleUserData,
+            updateUser,
+            getSingleUser,
+            isModalVisible,
+            setIsModalVisible,
+            isUploading,
+            setIsUploading
+        }}>
             {children}
         </UserContext.Provider>
     )

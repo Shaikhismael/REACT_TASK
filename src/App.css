@@ -189,3 +189,7 @@ input::file-selector-button {
         height: 80%;
     }
 }
+
+.submit-btn:active {
+    transform: translateY(-3px);
+}

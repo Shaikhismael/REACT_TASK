@@ -13,14 +13,24 @@ function EditModal({ handleEditModal }) {
     const [email, setEmail] = useState("")
     const [contact, setContact] = useState("")
     const [avatarUrl, setAvatarUrl] = useState("")
-    // const [userData, setUserData] = useState(null)
-    const { singleUserData, setSingleUserData, updateUser, getSingleUser } = useUserContext()
+    const {
+        singleUserData,
+        setSingleUserData,
+        updateUser,
+        getSingleUser,
+        isUploading,
+        setIsUploading
+    } = useUserContext()
     let { id } = useParams()
 
 
     async function handleSubmit(e) {
         e.preventDefault()
+        setIsUploading(true)
         const { userDetails } = await UpdateUser({ id, userName, email, avatarUrl, contact })
+        if (userDetails) {
+            setIsUploading(false)
+        }
         setSingleUserData(userDetails)
         // console.log(userDetails)
         updateUser(userDetails)
@@ -56,7 +66,8 @@ function EditModal({ handleEditModal }) {
                     {/* left card view */}
                     <div>
                         {!singleUserData && <div>Loading...</div>}
-                        {singleUserData && <PreviewCard {...singleUserData} />}
+                        {isUploading && <div>Uploading..</div>}
+                        {singleUserData && !isUploading && <PreviewCard {...singleUserData} />}
                     </div>
                     {/* right details form component */}
                     <div className="w-100">
